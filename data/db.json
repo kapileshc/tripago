@@ -3,22 +3,26 @@
         {
             "title": " 2 Night stay in Venice",
             "price":"$195",
-            "id":1
+            "id":1,
+            "loc":"europe"
         },
         {
             "title": " 3 Night stay in paris",
             "price":"$295",
-            "id":2
+            "id":2,
+            "loc":"europe"
         },
         {
             "title": " 4 Night stay in london",
             "price":"$345",
-            "id":3
+            "id":3,
+            "loc":"europe"
         },
         {
             "title": " 3 Night stay in newyork",
             "price":"$235",
-            "id":4
+            "id":4,
+            "loc":"america"
         }
     ]
 }
