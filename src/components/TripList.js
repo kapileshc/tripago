@@ -1,24 +1,22 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
+import {useFetch } from '../hooks/useFetch'
 
 //styles
 import './TripList.css'
 export default function TripList() {
 
-    const [trips,setTrips] = useState([]);
     const [url,setUrl] = useState('http://localhost:3000/trips')
+    const {data:trips,isPending,error} =useFetch(url)
 
-    useEffect(()=>{
-        fetch(url)
-        .then(response => response.json())
-        .then(json=>setTrips(json))
-    },[url])//for fetching the data one time useEffect hook is used with empty dependencies
-    console.log(trips)
+   
    
     return (
         <div className="trip-list">
             <h2>Trip list</h2>
+            {isPending&& <div>Loading trips...</div>}
+            {error && <div>{error}</div>}
             <ul>
-                {trips.map(trip => (
+                {trips &&trips.map(trip => (
                     <li key={trip.id}>
                         <h3>{trip.title}</h3>
                         <p>{trip.price}</p>
